@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:erdhika/screens/forgot_password_screen.dart';
+import 'package:erdhika/screens/register_screen.dart';
+import 'package:erdhika/widgets/button_main_widget.dart';
+import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,22 +17,24 @@ class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   final emailCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
+  num angka = 0;
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.sizeOf(context).height;
+    final width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           CustomPaint(
-            size: Size(MediaQuery.of(context).size.width,
-                MediaQuery.of(context).size.height),
+            size: Size(width, height),
             painter: PaintTopRight(),
           ),
           AppBar(
             leadingWidth: 80,
             leading: IconButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Get.back(),
               icon: Row(
                 children: [
                   Icon(
@@ -39,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Text(
                     "Back",
-                    style: GoogleFonts.workSans(
+                    style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
                     ),
@@ -62,30 +67,13 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: MediaQuery.of(context).size.height / 4),
+                  SizedBox(height: height * 0.2),
                   Center(
-                    child: Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "d",
-                            style: TextStyle(color: Color(0xfffbb148)),
-                          ),
-                          TextSpan(text: "ev"),
-                          TextSpan(
-                            text: "rnz",
-                            style: TextStyle(color: Color(0xfffbb148)),
-                          ),
-                        ],
-                      ),
-                      style: GoogleFonts.comicNeue(
-                        fontSize: 38,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                      child: Image.asset("assets/images/logo.png", scale: 5)),
                   SizedBox(height: 35),
-                  Text("Email id", style: GoogleFonts.workSans()),
+                  Text(
+                    "Email id",
+                  ),
                   SizedBox(height: 12),
                   TextFormField(
                     controller: emailCtrl,
@@ -98,7 +86,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.grey.shade200,
-                      border: OutlineInputBorder(borderSide: BorderSide.none),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0x7F4B4B4B))),
                       contentPadding: EdgeInsets.only(
                         bottom: 0,
                         top: 0,
@@ -108,7 +97,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(height: 12),
-                  Text("Password", style: GoogleFonts.workSans()),
+                  Text(
+                    "Password",
+                  ),
                   SizedBox(height: 12),
                   TextFormField(
                     controller: passwordCtrl,
@@ -120,7 +111,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.grey.shade200,
-                      border: OutlineInputBorder(borderSide: BorderSide.none),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0x7F4B4B4B))),
                       contentPadding: EdgeInsets.only(
                         bottom: 0,
                         top: 0,
@@ -129,40 +121,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(2)),
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0xfffbb148),
-                          Color(0xfff67f23),
-                        ],
-                      ),
+                  SizedBox(height: 30),
+                  ButtonMainWidget(
+                    text: Text(
+                      "Login",
+                      style: TextStyle(color: Colors.white),
                     ),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: () => Navigator.pop(context),
-                        child: Container(
-                          width: double.maxFinite,
-                          height: 36,
-                          child: Center(
-                            child: Text(
-                              "Login",
-                              style: GoogleFonts.workSans(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    backgroundColor: Color(0xFF80B3FF),
                   ),
                   SizedBox(height: 12),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: Text(
-                      "Forgot Password ?",
-                      style: GoogleFonts.workSans(),
+                    child: GestureDetector(
+                      onTap: () => Get.to(() => ForgotPasswordScreen()),
+                      child: Text(
+                        "Forgot Password ?",
+                      ),
                     ),
                   ),
                   SizedBox(height: 12),
@@ -176,7 +150,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(width: 6),
-                      Text("or", style: GoogleFonts.workSans()),
+                      Text(
+                        "or",
+                      ),
                       SizedBox(width: 6),
                       Expanded(
                         child: Divider(
@@ -194,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         Ink(
                           decoration: BoxDecoration(
-                            color: Color(0xff1258a6),
+                            color: Color(0xff3a559f),
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(2),
                               bottomLeft: Radius.circular(2),
@@ -215,7 +191,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: double.maxFinite,
                             height: 36,
                             decoration: BoxDecoration(
-                              color: Color(0xff2673b9),
+                              color: Color(0xFF2D4497),
                               borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(2),
                                 bottomRight: Radius.circular(2),
@@ -224,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Center(
                               child: Text(
                                 "Login with Facebook",
-                                style: GoogleFonts.workSans(
+                                style: TextStyle(
                                   color: Colors.white,
                                 ),
                               ),
@@ -235,19 +211,23 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Spacer(),
-                  Center(
-                    child: Text.rich(
-                      TextSpan(
-                        style: GoogleFonts.workSans(),
-                        children: [
-                          TextSpan(text: "Don't have an account ? "),
-                          TextSpan(
-                            text: "Register",
-                            style: TextStyle(color: Color(0xffeb8331)),
-                          )
-                        ],
+                  // Row(ch)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Don't have an account ? ",
                       ),
-                    ),
+                      GestureDetector(
+                        onTap: () => Get.off(() => RegisterScreen()),
+                        child: Text(
+                          "Register",
+                          style: TextStyle(
+                            color: Color(0xFF4C94FF),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -267,8 +247,8 @@ class PaintTopRight extends CustomPainter {
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          Color(0xfffbb148),
-          Color(0xffeb8331),
+          Color(0xff92bbff),
+          Color(0xFF6ca0ec),
         ],
       ).createShader(
         Rect.fromCircle(
