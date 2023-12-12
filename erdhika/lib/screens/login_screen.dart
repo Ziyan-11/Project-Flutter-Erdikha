@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:erdhika/screens/forgot_password_screen.dart';
+import 'package:erdhika/screens/navigation_screen.dart';
 import 'package:erdhika/screens/register_screen.dart';
 import 'package:erdhika/widgets/button_main_widget.dart';
 import 'package:flutter/material.dart';
@@ -123,6 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 30),
                   ButtonMainWidget(
+                    onTap: () => Get.offAll(() => NavigationScreen()),
                     text: Text(
                       "Login",
                       style: TextStyle(color: Colors.white),
