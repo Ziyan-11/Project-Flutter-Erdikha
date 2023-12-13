@@ -222,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             // SizedBox(height: 20),
             Container(
-              height: height * 0.23,
+              height: height * 0.28,
               // margin: EdgeInsets.symmetric(vertical: 20),
               child: ListView.separated(
                 // shrinkWrap: true,

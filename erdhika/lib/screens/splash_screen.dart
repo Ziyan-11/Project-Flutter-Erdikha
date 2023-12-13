@@ -14,13 +14,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   Timer? timer;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   timer = Timer(Duration(seconds: 3), () {
-  //     Get.offAll(() => OnboardingScreen());
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer(Duration(seconds: 3), () {
+      Get.offAll(() => OnboardingScreen());
+    });
+  }
 
   @override
   void dispose() {

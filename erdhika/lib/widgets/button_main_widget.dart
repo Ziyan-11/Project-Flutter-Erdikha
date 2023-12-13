@@ -7,6 +7,7 @@ class ButtonMainWidget extends StatelessWidget {
     this.isEnable = true,
     this.border,
     this.onTap,
+    this.borderRadius = 5,
     required this.backgroundColor,
   }) : super(key: key);
   Widget text;
@@ -14,6 +15,7 @@ class ButtonMainWidget extends StatelessWidget {
   BoxBorder? border;
   Function()? onTap;
   Color backgroundColor;
+  double borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class ButtonMainWidget extends StatelessWidget {
         // color: isEnable
         //           ? LightColors.mainColor
         //           : LightColors.mainColor.withOpacity(0.4),
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
         border: border ?? null,
       ),
       child: Material(
