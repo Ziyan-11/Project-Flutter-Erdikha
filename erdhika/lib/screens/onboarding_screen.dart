@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:erdhika/screens/auth_screen.dart';
+import 'package:erdhika/screens/auth/auth_screen.dart';
 import 'package:erdhika/widgets/button_main_widget.dart';
 // import 'package:erdikha/utils/onboard_helper.dart';
 import 'package:flutter/material.dart';

@@ -22,14 +22,14 @@ class _NavigationScreenState extends State<NavigationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // extendBodyBehindAppBar: true,
-      // appBar: AppBar(
-      //   elevation: 0,
-      //   toolbarHeight: 0,
-      //   backgroundColor: Colors.transparent,
-      //   systemOverlayStyle: SystemUiOverlayStyle(
-      //     statusBarColor: Color(0xff80B3FF)
-      //   ),
-      // ),
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 0,
+        backgroundColor: Colors.transparent,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Color(0xff80B3FF)
+        ),
+      ),
       body: screenBar.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: [

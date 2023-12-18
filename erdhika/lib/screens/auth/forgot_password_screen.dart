@@ -1,5 +1,5 @@
 import 'package:email_validator/email_validator.dart';
-import 'package:erdhika/screens/login_screen.dart';
+import 'package:erdhika/screens/auth/login_screen.dart';
 import 'package:erdhika/widgets/button_main_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,4 +1,6 @@
+import 'package:erdhika/screens/memo/memo_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -94,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 runSpacing: 18,
                 children: [
                   GestureDetector(
-                    onTap: () => debugPrint("memo click"),
+                    onTap: () => Get.to(() => MemoScreen()),
                     child: SizedBox(
                       width: width * 0.26,
                       child: Column(
