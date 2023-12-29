@@ -3,6 +3,7 @@ import 'package:erdhika/screens/auth/forgot_password_screen.dart';
 import 'package:erdhika/screens/navigation_screen.dart';
 import 'package:erdhika/screens/auth/register_screen.dart';
 import 'package:erdhika/widgets/button_main_widget.dart';
+import 'package:erdhika/widgets/maintenance_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -65,18 +66,14 @@ class _LoginScreenState extends State<LoginScreen> {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           key: formKey,
           child: ListView(
-            padding: EdgeInsets.only(
-              left: 25,
-              right: 25,
-              top: height * 0.1
-              // bottom: 30,
-            ),
+            padding: EdgeInsets.only(left: 25, right: 25, top: height * 0.1
+                // bottom: 30,
+                ),
             physics: BouncingScrollPhysics(),
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // SizedBox(height: height * 0.1),
-              Center(
-                  child: Image.asset("assets/images/logo.png", scale: 5)),
+              Center(child: Image.asset("assets/images/logo.png", scale: 5)),
               SizedBox(height: 35),
               Text(
                 "Email id",
@@ -180,7 +177,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: 30),
               ButtonMainWidget(
-                onTap: () => Get.offAll(() => NavigationScreen()),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return MaintenanceWidget();
+                    },
+                  );
+                },
                 backgroundColor: Colors.white,
                 borderRadius: 50,
                 border: Border.all(color: Color(0xFF80B3FF), width: 2),

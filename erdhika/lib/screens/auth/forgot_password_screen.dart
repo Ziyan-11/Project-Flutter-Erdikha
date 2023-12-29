@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:erdhika/screens/auth/login_screen.dart';
 import 'package:erdhika/widgets/button_main_widget.dart';
+import 'package:erdhika/widgets/maintenance_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -70,7 +71,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   // Text(
                   //   "Email id",
                   // ),
-                  Text("Enter your email address registered. You will receive an email with a link to reset your password."),
+                  Text(
+                      "Enter your email address registered. You will receive an email with a link to reset your password."),
                   SizedBox(height: 29),
                   TextFormField(
                     controller: emailCtrl,
@@ -101,6 +103,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       style: TextStyle(color: Colors.white),
                     ),
                     backgroundColor: Color(0xFF80B3FF),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return MaintenanceWidget();
+                        },
+                      );
+                    },
                   ),
                 ],
               ),

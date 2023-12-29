@@ -1,4 +1,5 @@
 import 'package:erdhika/screens/memo/memo_screen.dart';
+import 'package:erdhika/widgets/maintenance_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -112,7 +113,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => debugPrint("Opening Account Trackers click"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return MaintenanceWidget();
+                        },
+                      );
+                    },
                     child: SizedBox(
                       width: width * 0.3,
                       // height: height * 0.125,
@@ -129,7 +137,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => debugPrint("user click"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return MaintenanceWidget();
+                        },
+                      );
+                    },
                     child: SizedBox(
                       width: width * 0.26,
                       child: Column(
@@ -144,7 +159,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => debugPrint("banners click"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return MaintenanceWidget();
+                        },
+                      );
+                    },
                     child: SizedBox(
                       width: width * 0.26,
                       child: Column(
@@ -160,7 +182,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => debugPrint("riset click"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return MaintenanceWidget();
+                        },
+                      );
+                    },
                     child: SizedBox(
                       width: width * 0.26,
                       child: Column(
@@ -176,7 +205,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => debugPrint("invest bank click"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return MaintenanceWidget();
+                        },
+                      );
+                    },
                     child: SizedBox(
                       width: width * 0.26,
                       child: Column(
@@ -206,18 +242,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontSize: 16,
                     ),
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        "Lihat Semua",
-                        style: TextStyle(fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(width: 8),
-                      Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 18,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return MaintenanceWidget();
+                        },
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          "Lihat Semua",
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(width: 8),
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 18,
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -236,7 +282,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, index) {
                   return Container(
                     width: width * 0.60,
-                    // height: height * 0.4,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -248,43 +293,60 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Column(
-                      // shrinkWrap: true,
-                      // physics: NeverScrollableScrollPhysics(),
-                      children: [
-                        Image.asset(dataMorning[index]["image"]),
-                        Expanded(
-                          child: Container(
-                            height: double.infinity,
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              // shrinkWrap: true,
-                              // physics: NeverScrollableScrollPhysics(),
-                              // padding: EdgeInsets.all(8),
-                              children: [
-                                Text(
-                                  dataMorning[index]["title"],
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w500,
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return MaintenanceWidget();
+                            },
+                          );
+                        },
+                        child: Container(
+                          // height: height * 0.4,
+                          child: Column(
+                            // shrinkWrap: true,
+                            // physics: NeverScrollableScrollPhysics(),
+                            children: [
+                              Image.asset(dataMorning[index]["image"]),
+                              Expanded(
+                                child: Container(
+                                  height: double.infinity,
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    // shrinkWrap: true,
+                                    // physics: NeverScrollableScrollPhysics(),
+                                    // padding: EdgeInsets.all(8),
+                                    children: [
+                                      Text(
+                                        dataMorning[index]["title"],
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Text(
+                                          "2023-10-31 01:51:19",
+                                          // textAlign: TextAlign.end,
+                                          style: TextStyle(fontSize: 8),
+                                        ),
+                                      )
+                                    ],
                                   ),
                                 ),
-                                Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Text(
-                                    "2023-10-31 01:51:19",
-                                    // textAlign: TextAlign.end,
-                                    style: TextStyle(fontSize: 8),
-                                  ),
-                                )
-                              ],
-                            ),
+                              )
+                            ],
                           ),
-                        )
-                      ],
+                        ),
+                      ),
                     ),
                   );
                 },

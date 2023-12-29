@@ -1,6 +1,7 @@
 import 'package:erdhika/screens/memo/add_memo_screen.dart';
 import 'package:erdhika/widgets/button_card_widget.dart';
 import 'package:erdhika/widgets/button_main_widget.dart';
+import 'package:erdhika/widgets/maintenance_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -39,9 +40,8 @@ class _MemoScreenState extends State<MemoScreen> {
                 ),
               ),
               child: AppBar(
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: Colors.transparent
-                ),
+                systemOverlayStyle:
+                    SystemUiOverlayStyle(statusBarColor: Colors.transparent),
                 backgroundColor: Colors.transparent,
                 foregroundColor: Colors.black,
                 elevation: 0,
@@ -82,9 +82,19 @@ class _MemoScreenState extends State<MemoScreen> {
                           ),
                         ),
                         SizedBox(width: 6),
-                        Icon(
-                          Icons.filter_list,
-                          size: 30,
+                        GestureDetector(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return MaintenanceWidget();
+                              },
+                            );
+                          },
+                          child: Icon(
+                            Icons.filter_list,
+                            size: 30,
+                          ),
                         )
                       ],
                     ),
@@ -137,11 +147,27 @@ class _MemoScreenState extends State<MemoScreen> {
                         backgroundColor: Color(0x4C53FF28),
                         iconColor: Color(0xff8FFF7D),
                         text: "Export",
+                        ontap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return MaintenanceWidget();
+                            },
+                          );
+                        },
                       ),
                       ButtonCardWidget(
                         backgroundColor: Color(0x4CF9C303),
                         iconColor: Color(0xffFFC633),
                         text: "Print",
+                        ontap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return MaintenanceWidget();
+                            },
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -170,14 +196,26 @@ class _MemoScreenState extends State<MemoScreen> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return MaintenanceWidget();
+                                      },
+                                    );
+                                  },
                                   padding: EdgeInsets.zero,
                                   // splashRadius: 5,
                                   icon: Icon(Icons.edit),
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    debugPrint("delete");
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return MaintenanceWidget();
+                                      },
+                                    );
                                   },
                                   padding: EdgeInsets.zero,
                                   // splashRadius: 5,
